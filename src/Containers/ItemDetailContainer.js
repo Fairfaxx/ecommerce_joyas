@@ -8,7 +8,7 @@ const ItemDetailContainer = () => {
     const { id } = useParams();
     const [item, setItem] = useState();
     const [loading, setLoading] = useState(true);
-    const { contador, setContador } = useContext(Context);
+    const [contador, setContador] = useState(0)
     const { cartItems, setCartItems } = useContext(Context);
     const [modal, setModal] = useState(false);
 
@@ -36,12 +36,13 @@ const ItemDetailContainer = () => {
             })
     }, [id]);
 
-
+    //Dentro del if de linea 44 hacer logica que modifique el contexto la cantidad del item que esta repetido si exeder el stock
 
     const handleComprar = () => {
         let alreadyIn = false;
         cartItems && cartItems.map((itemIn) => {
             if (itemIn.id === item.id) {
+                console.log('Mismo id')
                 alreadyIn = true
             }
         })

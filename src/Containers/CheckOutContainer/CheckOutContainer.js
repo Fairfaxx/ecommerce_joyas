@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import './input.css'
 
 export default function CheckOutContainer() {
-    const { cartItems } = useContext(Context);
+    const { cartItems, setCartItems, setContador } = useContext(Context);
     const [orderId, setOrderId] = useState("");
     const [loading, setLoading] = useState([]);
     const [name, setName] = useState("");
@@ -19,7 +19,9 @@ export default function CheckOutContainer() {
     useEffect(() => {
         cartItems &&
             cartItems.map((item) =>
-                setTotal((prevTotal) => prevTotal + item.price * item.qty)
+                setTotal((prevTotal) => prevTotal + item.price * item.qty),
+                setContador(0),
+                setCartItems(cartItems)
             );
     }, [cartItems]);
 

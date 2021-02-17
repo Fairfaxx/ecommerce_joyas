@@ -24,12 +24,14 @@ export const Context = React.createContext();
 export const CartContext = ({ children }) => {
 
     const [cartItems, setCartItems] = useState([])
-    const [contador, setContador] = useState(0)
 
+    console.log(cartItems)
+
+    const qtyInCart = cartItems.reduce((acc, curr) => { return acc + curr.qty }, 0)
 
 
     return (
-        <Context.Provider value={{ cartItems, contador, setCartItems, setContador }}>
+        <Context.Provider value={{ cartItems, setCartItems, qtyInCart }}>
             {children}
         </Context.Provider>
     )

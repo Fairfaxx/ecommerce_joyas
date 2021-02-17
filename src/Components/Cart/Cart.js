@@ -62,7 +62,7 @@ export default function Cart({ cartItems, total, envio, deleteCartItems }) {
                 <div className='noItems'>
                     <h2 className='textNoItems'>
                         No hay nada en tu carrito
-                </h2>
+                    </h2>
                     <Link to={'/'} className='links-bottom'>
                         <button className="btn-detail"> ir a Home</button>
                     </Link>
