@@ -10,7 +10,7 @@
 .navStyle-inicia{
     width:100%;
     min-height:10vh;
-    background-color: dodgerblue;
+    background-color: #303030;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -21,7 +21,7 @@
 .navStyle-cerrar{
     width:100%;
     min-height:100px;
-    background-color: dodgerblue;
+    background-color: #303030;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -129,6 +129,10 @@ a {
     left: auto;
     right: 0;
     transform-origin: top right;
+}
+
+.contador{
+    color: #ffff
 }
 
 :root {

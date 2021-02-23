@@ -38,10 +38,7 @@ export default function NavBar({ type, setTipo }) {
                 </div>
                 <div>
                     <CartIcon name={user} />
-                    <button onClick={handleVip} className="buttonVip">
-                        <p className={`to-${type}`}>{vip}</p>
-                    </button>
-                    <p>{qtyInCart}</p>
+                    <h3 className="contador">Cantidad de Items: {qtyInCart}</h3>
                 </div>
             </div>
         </header>

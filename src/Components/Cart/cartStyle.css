@@ -29,7 +29,7 @@
 .customers {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    background-color: dodgerblue;
+    background-color: #303030;
     padding: 25px;
     margin: auto;
     width: 80%;
@@ -52,8 +52,8 @@ th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: rgb(201, 236, 201);
-  color: gray;
+  background-color: #303030;
+  color: #ffff;
 }
 
 
@@ -67,7 +67,7 @@ th {
     padding: 20px;
     font-size: 20px;
     text-transform: uppercase;
-    
+    text-align: center;
 }
 
 .number {
@@ -84,7 +84,7 @@ th {
     height: 75px;
     margin-top: 40px;
     margin-left: 0;
-    background-color: dodgerblue;
+    background-color: #303030;
     color: #ffff;
     border-radius: 15px;
     border: 1px solid gray;

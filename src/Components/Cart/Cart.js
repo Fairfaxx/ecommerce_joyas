@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-// import CheckOutContainer from '../../Containers/CheckOutContainer/CheckOutContainer';
+import { Context } from '../../Context/CartContext';
 import './cartStyle.css'
 
 export default function Cart({ cartItems, total, envio, deleteCartItems }) {
+
+    const { deleteItem } = useContext(Context);
 
     return (
         <div className='cartPageStyle'>
@@ -14,22 +16,24 @@ export default function Cart({ cartItems, total, envio, deleteCartItems }) {
                         <table className='customers'>
                             <thead style={{ textAlign: 'center' }}>
                                 <tr>
-                                    <th class='name'>#</th>
-                                    <th class='name'>Titulo</th>
-                                    <th class='name'>Precio</th>
-                                    <th class='name'>Cantidad</th>
-                                    <th class='name'>Total</th>
+                                    <th className='name'>#</th>
+                                    <th className='name'>Titulo</th>
+                                    <th className='name'>Precio</th>
+                                    <th className='name'>Cantidad</th>
+                                    <th className='name'>Total</th>
+                                    <th className='name'>Eliminar Item</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
                                     cartItems.map((item, idx) =>
                                         <tr key={idx}>
-                                            <td class='number' >{idx + 1}</td>
-                                            <td class='name' >{item.nombre}</td>
-                                            <td class='name' style={{ textAlign: 'center' }}>${item.precio}</td>
-                                            <td class='name' style={{ textAlign: 'center' }}>{item.qty}</td>
-                                            <td class='name' style={{ textAlign: 'center' }}>${item.precio * item.qty}</td>
+                                            <td className='number' >{idx + 1}</td>
+                                            <td className='name' >{item.nombre}</td>
+                                            <td className='name' style={{ textAlign: 'center' }}>${item.precio}</td>
+                                            <td className='name' style={{ textAlign: 'center' }}>{item.qty}</td>
+                                            <td className='name' style={{ textAlign: 'center' }}>${item.precio * item.qty}</td>
+                                            <td onClick={() => deleteItem()} class='name' style={{ textAlign: 'center' }}><i style={{ color: "red", fontSize: '41px' }} class="far fa-times-circle"></i></td>
                                         </tr>
                                     )
                                 }

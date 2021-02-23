@@ -27,16 +27,18 @@ export const CartContext = ({ children }) => {
     const [item, setItem] = useState([])
 
     console.log('desde cart context', item.id)
-    const handlerDeleteItem = (id) => {
-        const products = cartItems.filter(product => item.id !== id);
-        setItem([...cartItems, item])
+
+    const deleteItem = (item, toDel = 1) => {
+        let newCart = [...cartItems]
+        newCart.splice(item - 1, toDel)
+        setCartItems(newCart)
     }
 
     const qtyInCart = cartItems.reduce((acc, curr) => { return acc + curr.qty }, 0)
 
 
     return (
-        <Context.Provider value={{ cartItems, setCartItems, qtyInCart, item, setItem, handlerDeleteItem }}>
+        <Context.Provider value={{ cartItems, setCartItems, qtyInCart, item, setItem, deleteItem }}>
             {children}
         </Context.Provider>
     )

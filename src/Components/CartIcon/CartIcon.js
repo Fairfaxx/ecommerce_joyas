@@ -7,9 +7,9 @@ const CartIcon = (props) => {
     return (
         <div>
             <Link to='/cart'>
-                <i class="fas fa-cart-arrow-down"></i>
+                <i style={{ color: 'white' }} class="fas fa-cart-arrow-down"></i>
             </Link>
-            <p>{props.greeting} {props.name}</p>
+            <p style={{ color: "#ffff " }}>{props.greeting} {props.name}</p>
         </div>
     )
 }
