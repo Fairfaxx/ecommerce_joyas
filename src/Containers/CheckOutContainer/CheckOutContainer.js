@@ -20,7 +20,7 @@ export default function CheckOutContainer() {
         cartItems &&
             cartItems.map((item) =>
                 setTotal((prevTotal) => prevTotal + item.price * item.qty),
-                setContador(0),
+
                 setCartItems(cartItems)
             );
     }, [cartItems]);
@@ -68,7 +68,7 @@ export default function CheckOutContainer() {
                 <CheckOutCart key={product.id} product={product} />
             ))}
             <Link to={'/'}>
-                <button className='btn-detail-out'>ir a home</button>
+                <button className='btn-detail-out'>Seguir viendo</button>
             </Link>
             <h2 className='margin-top'>Deja tus datos y confirma tu compra</h2>
             <form className='form margin-bottom-300px'>

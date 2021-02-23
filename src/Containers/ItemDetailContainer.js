@@ -6,7 +6,7 @@ import ItemDetail from '../Components/ItemDetail/ItemDetail'
 
 const ItemDetailContainer = () => {
     const { id } = useParams();
-    const [item, setItem] = useState();
+    const { item, setItem } = useContext(Context);
     const [loading, setLoading] = useState(true);
     const [contador, setContador] = useState(0)
     const { cartItems, setCartItems } = useContext(Context);
@@ -42,7 +42,9 @@ const ItemDetailContainer = () => {
         let alreadyIn = false;
         cartItems && cartItems.map((itemIn) => {
             if (itemIn.id === item.id) {
-                console.log('Mismo id')
+                console.log('Mismo id', id)
+                alert("El producto ya se encuentra en el carrito, igual se agregará")
+                setCartItems(currentCart => [...currentCart, itemIn])
                 alreadyIn = true
             }
         })

@@ -48,13 +48,13 @@ export default function Cart({ cartItems, total, envio, deleteCartItems }) {
                     </div>
                     <div className='d-flex flex-row justify-content-center'>
                         <Link to={'/'}>
-                            <button className="btn-detail-card"> ir a Home</button>
+                            <button className="btn-detail-card">Seguir Viendo</button>
                         </Link>
                         <Link to={'/'}>
                             <button onClick={deleteCartItems} className="ml-2 btn-detail-card">Vaciar el Carrito</button>
                         </Link>
                         <Link to={'/checkout/'}>
-                            <button className="btn-detail-card links-card"> Comprar</button>
+                            <button className="btn-detail-card links-card">Terminar Comprar</button>
                         </Link>
                     </div>
                 </div>

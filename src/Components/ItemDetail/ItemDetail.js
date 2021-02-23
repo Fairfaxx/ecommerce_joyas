@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './itemDetail.css'
 
 
-export default function ItemDetail({ item, loading, contador, setContador, handleComprar }) {
+export default function ItemDetail({ item, loading, contador, setContador, handleComprar, handlerDeleteItem }) {
     console.log('Desde ItemDetail', contador)
 
     return (

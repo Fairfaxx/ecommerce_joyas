@@ -24,7 +24,6 @@ function App() {
       <CartContext>
         <BrowserRouter>
           <NavBar type={tipo} setTipo={setTipo} />
-          <Footer />
           <Switch>
             <Route path='/gracias/' render={() => <Saludo />} />
             <Route path='/checkout/' render={() => <CheckOutContainer />} />
