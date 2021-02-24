@@ -44,7 +44,7 @@ const ItemDetailContainer = () => {
             if (itemIn.id === item.id) {
                 console.log('Mismo id', id)
                 alert("El producto ya se encuentra en el carrito, igual se agregará")
-                setCartItems(currentCart => [...currentCart, itemIn])
+                itemIn.qty++
                 alreadyIn = true
             }
         })
