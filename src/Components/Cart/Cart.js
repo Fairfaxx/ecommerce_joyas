@@ -33,19 +33,19 @@ export default function Cart({ cartItems, total, envio, deleteCartItems }) {
                                             <td className='name' style={{ textAlign: 'center' }}>${item.precio}</td>
                                             <td className='name' style={{ textAlign: 'center' }}>{item.qty}</td>
                                             <td className='name' style={{ textAlign: 'center' }}>${item.precio * item.qty}</td>
-                                            <td onClick={() => deleteItem()} class='name' style={{ textAlign: 'center' }}><i style={{ color: "red", fontSize: '41px' }} class="far fa-times-circle"></i></td>
+                                            <td onClick={() => deleteItem()} className='name' style={{ textAlign: 'center' }}><i style={{ color: "red", fontSize: '41px' }} className="far fa-times-circle"></i></td>
                                         </tr>
                                     )
                                 }
                                 <tr>
                                     <td>*</td>
-                                    <td class='envio' colSpan="3">Envio</td>
-                                    <td class='envio' style={{ textAlign: 'center' }}>${envio}</td>
+                                    <td className='envio' colSpan="3">Envio</td>
+                                    <td className='envio' style={{ textAlign: 'center' }}>${envio}</td>
                                 </tr>
                                 <tr>
                                     <td>*</td>
-                                    <td class='envio' colSpan="3">Total</td>
-                                    <td class='envio' style={{ textAlign: 'center' }}>${total + 100}</td>
+                                    <td className='envio' colSpan="3">Total</td>
+                                    <td className='envio' style={{ textAlign: 'center' }}>${total + 100}</td>
                                 </tr>
                             </tbody>
                         </table>

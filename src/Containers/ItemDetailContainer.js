@@ -30,7 +30,6 @@ const ItemDetailContainer = () => {
                     id: doc.id,
                     ...doc.data()
                 }));
-                console.log('desde itemdatailcontainer', item);
             })
             .catch((error) => {
                 console.log('Ocurrio un error', error);

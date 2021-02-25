@@ -34,7 +34,6 @@ export default function CheckOutContainer() {
 
         const buyer = { name, email, conEmail };
         const items = cartItems;
-        console.log(buyer)
         const newOrder = {
             buyer,
             items,
@@ -48,7 +47,6 @@ export default function CheckOutContainer() {
                 setOrderId(id)
             })
             .catch((error) => {
-                // setError(error);
                 console.log(error);
             })
             .finally(() => {
@@ -103,12 +101,10 @@ export default function CheckOutContainer() {
                     <label className="text-start"> confirma tu email</label>
                     <input type="email" name="conEmail" value={conEmail} onChange={confonEmailChange} placeholder="mail@ejemplo.com" />
                 </div>
-                {/* <button type='submit'>Guardar datos</button>
-                {error ? <p>Completa los campos</p> : null} */}
+                <Link to={'/gracias/'}>
+                    <button disabled={!(name && email && conEmail)} onClick={addOrder} className='btn-detail-out'>confirmar y comprar</button>
+                </Link>
             </form>
-            <Link to={'/gracias/'}>
-                <button disabled={!(name && email && conEmail)} onClick={addOrder} className='btn-detail-out'>confirmar y comprar</button>
-            </Link>
         </div>
     );
 }
