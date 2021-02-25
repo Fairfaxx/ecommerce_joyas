@@ -43,7 +43,7 @@ export default function CheckOutContainer() {
 
         orders.add(newOrder)
             .then(({ id }) => {
-                alert(`Felicitaciones se generó la orden Nº${id}`)
+                alert(`Felicitaciones se generó la orden Nº ${id}`)
                 setOrderId(id)
             })
             .catch((error) => {
@@ -88,6 +88,8 @@ export default function CheckOutContainer() {
                 <button className='btn-detail-out'>Seguir viendo</button>
             </Link>
             <h2 className='margin-top'>Deja tus datos y confirma tu compra</h2>
+            <h4>Para finalizar la compra debes completar el formulario y se habilitará el botón de confirmación</h4>
+            <p>Recuerda guardar tu id de compra que aparecerá al finalizar el proceso</p>
             <form onSubmit={handlerSubmit} className='form margin-bottom-300px'>
                 <div className='form-group d-flex'>
                     <label className="text-start">nombre</label>
