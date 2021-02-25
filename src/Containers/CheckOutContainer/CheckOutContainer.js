@@ -53,16 +53,17 @@ export default function CheckOutContainer() {
             })
             .finally(() => {
                 setLoading(false);
+                setCartItems([]);
             });
     };
 
-    function onNameChange (evento) {
+    function onNameChange(evento) {
         setName(evento.target.value)
     }
-    function onEmailChange (evento) {
+    function onEmailChange(evento) {
         setEmail(evento.target.value)
     }
-    function confonEmailChange (evento) {
+    function confonEmailChange(evento) {
         setConEmail(evento.target.value)
     }
 
@@ -96,14 +97,14 @@ export default function CheckOutContainer() {
                 </div>
                 <div className='form-group d-flex'>
                     <label className="text-start">email</label>
-                    <input type="email" name="email" value={email} onChange={(evento) => onEmailChange(evento) } placeholder="mail@ejemplo.com" />
+                    <input type="email" name="email" value={email} onChange={(evento) => onEmailChange(evento)} placeholder="mail@ejemplo.com" />
                 </div>
                 <div className='form-group d-flex'>
                     <label className="text-start"> confirma tu email</label>
                     <input type="email" name="conEmail" value={conEmail} onChange={confonEmailChange} placeholder="mail@ejemplo.com" />
                 </div>
-                <button type='submit'>Guardar datos</button>
-                {error ? <p>Completa los campos</p> : null}
+                {/* <button type='submit'>Guardar datos</button>
+                {error ? <p>Completa los campos</p> : null} */}
             </form>
             <Link to={'/gracias/'}>
                 <button disabled={!(name && email && conEmail)} onClick={addOrder} className='btn-detail-out'>confirmar y comprar</button>
