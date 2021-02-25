@@ -15,7 +15,7 @@ export default function CheckOutCart({ product }) {
                     <p className="price-detail">${product.precio} </p>
                     <p className="text-start"> <em>ID de tu producto:</em> {product.id} </p>
                     <p className="text-start margin-bottom">{product.description}</p>
-                    <p className="text-start margin-bottom">Todos los productos tienen hasta 5 años  de garantía desde la fecha de adquisición. La presente garantía se extingue automáticamente una vez cumplidos los 5 años de adquirido el producto.</p>
+                    <p className="text-start margin-bottom">Todos los productos tienen hasta 1 año de garantía desde la fecha de adquisición.</p>
                 </div>
             </div>
         </div>

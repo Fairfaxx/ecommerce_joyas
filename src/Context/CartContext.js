@@ -23,10 +23,8 @@ export const Context = React.createContext();
 
 export const CartContext = ({ children }) => {
 
-    const [cartItems, setCartItems] = useState([])
-    const [item, setItem] = useState([])
-
-    console.log('desde cart context', item.id)
+    const [cartItems, setCartItems] = useState([]);
+    const [item, setItem] = useState([]);
 
     const deleteItem = (item, toDel = 1) => {
         let newCart = [...cartItems]
@@ -34,7 +32,7 @@ export const CartContext = ({ children }) => {
         setCartItems(newCart)
     }
 
-    const qtyInCart = cartItems.reduce((acc, curr) => { return acc + curr.qty }, 0)
+    let qtyInCart = cartItems.reduce((acc, curr) => { return acc + curr.qty }, 0)
 
 
     return (

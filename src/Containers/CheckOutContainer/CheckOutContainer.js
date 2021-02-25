@@ -7,13 +7,14 @@ import { Link } from 'react-router-dom';
 import './input.css'
 
 export default function CheckOutContainer() {
-    const { cartItems, setCartItems, setContador } = useContext(Context);
+    const { cartItems, setCartItems } = useContext(Context);
     const [orderId, setOrderId] = useState("");
     const [loading, setLoading] = useState([]);
     const [name, setName] = useState("");
     const [total, setTotal] = useState(0);
     const [email, setEmail] = useState("");
     const [conEmail, setConEmail] = useState("");
+    const [error, setError] = useState(false)
 
 
     useEffect(() => {
@@ -25,13 +26,15 @@ export default function CheckOutContainer() {
             );
     }, [cartItems]);
 
+
+
     const addOrder = () => {
         const db = getFirestore();
         const orders = db.collection("orders");
 
         const buyer = { name, email, conEmail };
         const items = cartItems;
-
+        console.log(buyer)
         const newOrder = {
             buyer,
             items,
@@ -61,6 +64,20 @@ export default function CheckOutContainer() {
     const confonEmailChange = (evento) => {
         setConEmail(evento.target.value)
     }
+
+    const handlerSubmit = e => {
+        e.preventDefault()
+        if (name.trim() === "" && email.trim() === "" && conEmail.trim() === "") {
+            setError(true)
+            console.log('validar')
+            return
+        } else {
+            return true
+        }
+
+    }
+
+
     return (
         <div>
             <h2 className='title-item-out'>Detalle de compra</h2>
@@ -71,7 +88,7 @@ export default function CheckOutContainer() {
                 <button className='btn-detail-out'>Seguir viendo</button>
             </Link>
             <h2 className='margin-top'>Deja tus datos y confirma tu compra</h2>
-            <form className='form margin-bottom-300px'>
+            <form onSubmit={handlerSubmit} className='form margin-bottom-300px'>
                 <div className='form-group d-flex'>
                     <label className="text-start">nombre</label>
                     <input type="text" name="name" value={name} onChange={onNameChange} placeholder="Nombre y Apellido" />
@@ -84,11 +101,12 @@ export default function CheckOutContainer() {
                     <label className="text-start"> confirma tu email</label>
                     <input type="email" name="conEmail" value={conEmail} onChange={confonEmailChange} placeholder="mail@ejemplo.com" />
                 </div>
-                <Link to={'/gracias/'}>
-                    <button onClick={addOrder} className='btn-detail-out'>confirmar y comprar</button>
-                </Link>
+                <button type='submit'>Guardar datos</button>
+                {error ? <p>Completa los campos</p> : null}
             </form>
-
+            {handlerSubmit ? <Link to={'/gracias/'}>
+                <button onClick={addOrder} className='btn-detail-out'>confirmar y comprar</button>
+            </Link> : null}
         </div>
     );
 }

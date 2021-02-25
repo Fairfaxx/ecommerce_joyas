@@ -7,6 +7,7 @@ import ItemDetail from '../Components/ItemDetail/ItemDetail'
 const ItemDetailContainer = () => {
     const { id } = useParams();
     const { item, setItem } = useContext(Context);
+    let { qtyInCart } = useContext(Context);
     const [loading, setLoading] = useState(true);
     const [contador, setContador] = useState(0)
     const { cartItems, setCartItems } = useContext(Context);
@@ -24,9 +25,12 @@ const ItemDetailContainer = () => {
                     console.log('El doc no existe');
                     return true;
                 }
-                const dataQuery = doc.data();
-                setItem({ id: doc.id, ...doc.data() }, dataQuery);
-                console.log(dataQuery);
+                // const dataQuery = doc.data();
+                setItem(({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+                console.log('desde itemdatailcontainer', item);
             })
             .catch((error) => {
                 console.log('Ocurrio un error', error);
@@ -34,17 +38,19 @@ const ItemDetailContainer = () => {
             .finally(() => {
                 setLoading(false);
             })
-    }, [id]);
+
+    }, [id, qtyInCart]);
 
     //Dentro del if de linea 44 hacer logica que modifique el contexto la cantidad del item que esta repetido si exeder el stock
 
-    const handleComprar = () => {
+    let handleComprar = () => {
         let alreadyIn = false;
         cartItems && cartItems.map((itemIn) => {
             if (itemIn.id === item.id) {
                 console.log('Mismo id', id)
                 alert("El producto ya se encuentra en el carrito, igual se agregará")
-                itemIn.qty++
+                itemIn.qty++;
+                qtyInCart++
                 alreadyIn = true
             }
         })
