@@ -1,14 +1,17 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore'
 
+const APIKEY = process.env.REACT_APP_FIREBASE_APIKEY
+const APIID = process.env.REACT_APP_FIREBASE_APIID
+const MESSAGESENDERID = process.env.REACT_APP_FIREBASE_MESSAGINSENDERID
 
 const app = firebase.initializeApp({
-    apiKey: "AIzaSyCIxT10-HQIGcyjFcsu7nhtx2Bp32Fzudg",
+    apiKey: APIKEY,
     authDomain: "myvintageecommerce.firebaseapp.com",
     projectId: "myvintageecommerce",
     storageBucket: "myvintageecommerce.appspot.com",
-    messagingSenderId: "771744888163",
-    appId: "1:771744888163:web:f9b068143acda40bf34f56"
+    messagingSenderId: MESSAGESENDERID,
+    appId: APIID
 })
 
 export function getFirebase() {
